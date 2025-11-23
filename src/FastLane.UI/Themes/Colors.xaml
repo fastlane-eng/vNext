@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <!-- Primary and accent colors for the FastLane UI library -->
+    <Color x:Key="PrimaryColor">#F5F5F5</Color>
+    <Color x:Key="SecondaryColor">#FFFFFF</Color>
+    <Color x:Key="AccentColor">#DA3435</Color>
+</ResourceDictionary>
