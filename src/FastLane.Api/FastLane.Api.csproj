@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FastLane.Core\FastLane.Core.csproj" />
+    <ProjectReference Include="..\FastLane.Data\FastLane.Data.csproj" />
+    <ProjectReference Include="..\FastLane.Services\FastLane.Services.csproj" />
+  </ItemGroup>
+</Project>
