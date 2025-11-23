@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-windows10.0.19041.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FastLane.Core\FastLane.Core.csproj" />
+    <ProjectReference Include="..\FastLane.Services\FastLane.Services.csproj" />
+    <ProjectReference Include="..\FastLane.UI\FastLane.UI.csproj" />
+  </ItemGroup>
+
+</Project>
