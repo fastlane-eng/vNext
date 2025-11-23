@@ -8,6 +8,6 @@ public partial class InventoryPage : ContentPage
     public InventoryPage()
     {
         InitializeComponent();
-        BindingContext = new InventoryViewModel();
+        BindingContext = new InventoryViewModel(App.InventoryService);
     }
 }
