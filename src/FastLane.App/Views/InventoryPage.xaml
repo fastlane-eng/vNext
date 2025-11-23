@@ -7,6 +7,7 @@
         <VerticalStackLayout Padding="20">
             <Label Text="Inventory" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
             <!-- Placeholder for Inventory Grid -->
+            <!-- TODO: Implement inventory UI with CollectionView and stock editing commands -->
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
