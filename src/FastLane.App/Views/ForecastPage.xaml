@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastLane.App.Views.ForecastPage"
+             Title="Forecast">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Forecast" FontAttributes="Bold" FontSize="24" />
+            <!-- TODO: Add forecast charts and controls -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
