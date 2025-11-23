@@ -32,6 +32,7 @@ namespace FastLane.App.ViewModels
 
         public InventoryViewModel()
             : this(new InventoryService(new InventoryRepository("Data Source=fastlane.db")))
+
         {
         }
 
