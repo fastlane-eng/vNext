@@ -2,9 +2,14 @@ using FastLane.Core.Models;
 using FastLane.Core.Interfaces;
 using FastLane.Data.Repositories;
 using FastLane.Services;
+using FastLane.Api.Middleware;
+using FastLane.Api.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +22,32 @@ builder.Services.AddSingleton<IInventoryService, InventoryService>();
 builder.Services.AddSingleton<IForecastService, ForecastService>();
 builder.Services.AddSingleton<IPurchaseOrderEngine, PurchaseOrderEngine>();
 
+// API versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+});
+
+// Authentication and authorization (stub)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        // Placeholder authority and audience; real values to be configured
+        options.Authority = "https://example.com";
+        options.Audience = "fastlane_api";
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = false
+        };
+    });
+builder.Services.AddAuthorization();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -27,6 +58,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Use global error handling middleware
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
+// Authentication & Authorization
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapGet("/inventory", async (IInventoryService svc) =>
 {
